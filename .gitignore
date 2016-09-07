@@ -73,3 +73,6 @@ xcuserdata
 *.moved-aside
 DerivedData
 *.xcuserstate
+
+### VS code ###
+.vscode
