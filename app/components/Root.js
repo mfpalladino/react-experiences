@@ -1,91 +1,22 @@
 import React, { Component } from 'react';
-import { ScrollView, Image, Text, View } from 'react-native';
+import { ListView, Text, View } from 'react-native';
 
 export default class Root extends Component {
 
-    render() {
+    constructor(props) {
+        super(props);
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        this.state = {dataSource: ds.cloneWithRows(['Teste1', 'Teste2', 'Teste3', 'Teste4'])}
+    }
+
+    render() { 
         return (
-        <ScrollView>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-          <Text style={{fontSize:96}}>Teste para rolagem</Text>
-        </ScrollView>
+            <View style={{paddingTop: 22}}>
+                <ListView
+                dataSource={this.state.dataSource}
+                renderRow={(rowData) => <Text>{rowData}</Text>}
+                />
+            </View>
         )
     }
 }
