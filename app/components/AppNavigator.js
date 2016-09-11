@@ -19,7 +19,9 @@ class AppNavigator extends React.Component{
       <Navigator
         style={{flex:1}}
         initialRoute={{id: initialRouteID}}
-        renderScene={this.navigatorRenderScene}/>
+        renderScene={this.navigatorRenderScene}
+        configureScene={(route, routeStack) => route.configureScene?route.configureScene:Navigator.SceneConfigs.PushFromRight}
+        />
     )
   }
 
