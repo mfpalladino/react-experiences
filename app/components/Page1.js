@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {  View, Text, Button, TouchableNativeFeedback, StyleSheet  } from 'react-native';
+import React, { Component } from 'react'
+import {  View, Text, Button, TouchableNativeFeedback, StyleSheet  } from 'react-native'
 
 class Page1 extends Component {
     constructor(props) {
@@ -9,6 +9,7 @@ class Page1 extends Component {
         }
     }
     render() {
+
         return (
             <View>
                 <Text style={{fontSize:50, paddingBottom:50}}>Page 1</Text>

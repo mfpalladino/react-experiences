@@ -1,4 +1,4 @@
 import {AppRegistry} from 'react-native'
-import Root from './app/components/Root'
+import Root from './app/containers/Root'
 
 AppRegistry.registerComponent('rnpallaexps', () => Root)

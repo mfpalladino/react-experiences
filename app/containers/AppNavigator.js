@@ -5,8 +5,8 @@ import
   Navigator
 } from 'react-native'
 
-import Page1 from './Page1'
-import Page2 from './Page2'
+import Page1 from '../components/Page1'
+import Page2 from '../components/Page2'
 
 class AppNavigator extends React.Component{
   constructor(props) {
