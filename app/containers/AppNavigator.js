@@ -1,26 +1,22 @@
-import React , {Component} from 'react'
-import
-{
-  View,
-  Navigator
-} from 'react-native'
+import React, {Component} from 'react'
+import {  View, Navigator} from 'react-native'
 
 import Page1 from '../components/Page1'
 import Page2 from '../components/Page2'
 
-class AppNavigator extends React.Component{
+export default class AppNavigator extends React.Component {
   constructor(props) {
-  super(props)
+    super(props)
   }
-  
+
   render() {
     var initialRouteID = 'page1';
     return (
       <Navigator
-        style={{flex:1}}
-        initialRoute={{id: initialRouteID}}
+        style={{ flex: 1 }}
+        initialRoute={{ id: initialRouteID }}
         renderScene={this.navigatorRenderScene}
-        configureScene={(route, routeStack) => route.configureScene?route.configureScene:Navigator.SceneConfigs.PushFromRight}
+        configureScene={(route, routeStack) => route.configureScene ? route.configureScene : Navigator.SceneConfigs.PushFromRight}
         />
     )
   }
@@ -34,6 +30,3 @@ class AppNavigator extends React.Component{
     }
   }
 }
-
-
-module.exports = AppNavigator;

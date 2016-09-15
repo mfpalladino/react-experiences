@@ -1,22 +1,15 @@
 import React, { Component } from 'react'
 import {  View, Text, DrawerLayoutAndroid } from 'react-native'
 
-import AppNavigator from './AppNavigator'
-
-import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import thunk from 'redux-thunk'
 
-import * as valueActions from '../actions/valueActions'
-import * as reducers from '../reducers/reducer'
+import AppNavigator from './AppNavigator'
+import counterReducer from '../reducers/counterReducer'
 
-import { connect } from 'react-redux'
+let store = createStore(counterReducer, window.devToolsExtension && window.devToolsExtension());
 
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
-const reducer = combineReducers(reducers)
-const store = createStoreWithMiddleware(reducer)
-
-export class Root extends Component {
+export default class Root extends Component {
 
   render() {
     var navigationView = (
@@ -42,11 +35,3 @@ export class Root extends Component {
     )
   }
 }
-
-export default connect(state => ({
-  state: state.reducer
-}),
-  (dispatch) => ({
-    actions: bindActionCreators(valueActions, dispatch)
-  })
-)(Root)

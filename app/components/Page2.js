@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import {  View, Text, Button, TouchableNativeFeedback, StyleSheet, Navigator  } from 'react-native'
 
-class Page2 extends Component {
+import * as counterActions from '../actions/counterActions'
+
+export default class Page2 extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,6 +20,20 @@ class Page2 extends Component {
                         <Text>Go to page1</Text>
                     </View>
                 </TouchableNativeFeedback>
+
+                <TouchableNativeFeedback
+                    onPress={this.increment.bind(this) }>
+                    <View>
+                        <Text>Increment</Text>
+                    </View>
+                </TouchableNativeFeedback>
+                
+                <TouchableNativeFeedback
+                    onPress={this.decrement.bind(this) }>
+                    <View>
+                        <Text>Decrement</Text>
+                    </View>
+                </TouchableNativeFeedback>
             </View>
         )
     }
@@ -28,6 +44,18 @@ class Page2 extends Component {
             configureScene : Navigator.SceneConfigs.FloatFromBottom
         })
     }
+
+    increment() {
+        const {store} = this.context
+        store.dispatch(counterActions.increment())
+    }
+    
+    decrement() {
+        const {store} = this.context
+        store.dispatch(counterActions.decrement())
+    }
 }
 
-module.exports = Page2
+Page2.contextTypes = {
+    store: React.PropTypes.object
+}
