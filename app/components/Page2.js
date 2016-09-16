@@ -6,14 +6,13 @@ import * as counterActions from '../actions/counterActions'
 export default class Page2 extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            id: 'page2'
-        }
     }
     render() {
+        const { onIncrementClick, onDecrementClick } = this.props;
+
         return (
             <View>
-                <Text style={{fontSize:50, paddingBottom:50}}>Page 2</Text>
+                <Text style={{ fontSize: 50, paddingBottom: 50 }}>Page 2</Text>
                 <TouchableNativeFeedback
                     onPress={this.gotoPage1.bind(this) }>
                     <View>
@@ -22,14 +21,14 @@ export default class Page2 extends Component {
                 </TouchableNativeFeedback>
 
                 <TouchableNativeFeedback
-                    onPress={this.increment.bind(this) }>
+                    onPress={ onIncrementClick }>
                     <View>
                         <Text>Increment</Text>
                     </View>
                 </TouchableNativeFeedback>
-                
+
                 <TouchableNativeFeedback
-                    onPress={this.decrement.bind(this) }>
+                    onPress={ onDecrementClick }>
                     <View>
                         <Text>Decrement</Text>
                     </View>
@@ -41,21 +40,7 @@ export default class Page2 extends Component {
     gotoPage1() {
         this.props.navigator.push({
             id: 'page1',
-            configureScene : Navigator.SceneConfigs.FloatFromBottom
+            configureScene: Navigator.SceneConfigs.FloatFromBottom
         })
     }
-
-    increment() {
-        const {store} = this.context
-        store.dispatch(counterActions.increment())
-    }
-    
-    decrement() {
-        const {store} = this.context
-        store.dispatch(counterActions.decrement())
-    }
-}
-
-Page2.contextTypes = {
-    store: React.PropTypes.object
 }

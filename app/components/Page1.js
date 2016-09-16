@@ -3,14 +3,11 @@ import {  View, Text, Button, TouchableNativeFeedback, StyleSheet  } from 'react
 
 export default class Page1 extends Component {
     constructor(props) {
-        super(props);
-        this.state = {
-            id: 'page1'
-        }
+        super(props)
+        this.navigator = props.navigator;
     }
     render() {
-        const {store} = this.context
-        const state = store.getState()
+        const { counter } = this.props;
 
         return (
             <View>
@@ -18,7 +15,7 @@ export default class Page1 extends Component {
                 <TouchableNativeFeedback
                     onPress={this.gotoPage2.bind(this) }>
                     <View>
-                        <Text>{state}</Text>
+                        <Text>{counter}</Text>
                         <Text>Go to page2</Text>
                     </View>
                 </TouchableNativeFeedback>
@@ -27,12 +24,8 @@ export default class Page1 extends Component {
     }
 
     gotoPage2() {
-        this.props.navigator.push({
+        this.navigator.push({
             id: 'page2'
         })
     }
-}
-
-Page1.contextTypes = {
-    store: React.PropTypes.object
 }
