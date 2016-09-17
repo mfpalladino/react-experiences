@@ -6,6 +6,8 @@ export default function counterReducer(state = 0, action = {}) {
       return state + 1
     case counterActionTypes.COUNTER_ACTION_DECREMENT:
       return state - 1
+    case counterActionTypes.COUNTER_ACTION_VALUE_INCREMENT:
+      return state + action.value
     default:
       return state
   }

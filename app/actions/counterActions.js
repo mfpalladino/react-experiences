@@ -11,3 +11,10 @@ export function decrement() {
     type: counterActionTypes.COUNTER_ACTION_DECREMENT
   }
 }
+
+export function valueIncrement(value) {
+  return {
+    type: counterActionTypes.COUNTER_ACTION_VALUE_INCREMENT,
+    value: value
+  }
+}

@@ -8,7 +8,7 @@ export default class Page2 extends Component {
         super(props);
     }
     render() {
-        const { onIncrementClick, onDecrementClick } = this.props;
+        const { onIncrementClick, onDecrementClick, onValueIncrementClick } = this.props;
 
         return (
             <View>
@@ -33,8 +33,20 @@ export default class Page2 extends Component {
                         <Text>Decrement</Text>
                     </View>
                 </TouchableNativeFeedback>
+
+                <TouchableNativeFeedback
+                    onPress={this.valueIncrement.bind(this) }>
+                    <View>
+                        <Text>Increment Value: 2</Text>
+                    </View>
+                </TouchableNativeFeedback>
+                
             </View>
         )
+    }
+
+    valueIncrement(){
+        this.props.onValueIncrementClick(2)        
     }
 
     gotoPage1() {

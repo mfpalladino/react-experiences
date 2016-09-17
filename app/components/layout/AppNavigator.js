@@ -38,6 +38,7 @@ export default class AppNavigator extends React.Component {
             case 'page2':
                 return (<Page2 onIncrementClick={this.actions.increment}
                     onDecrementClick={this.actions.decrement}
+                    onValueIncrementClick={this.actions.valueIncrement}
                     navigator={navigator}
                     route={route}
                     title="Página 2"/>)
