@@ -15,7 +15,7 @@ export default function sampleReducer(state = initialState, action = {}) {
       return Object.assign({}, state, { counter: state.counter + 1 })
 
     case sampleActionTypes.COUNTER_DECREMENT:
-      return Object.assign({}, state, { counter: state.counter + 1 })
+      return Object.assign({}, state, { counter: state.counter - 1 })
 
     case sampleActionTypes.COUNTER_VALUE_INCREMENT:
       return Object.assign({}, state, { counter: state.counter + action.value })

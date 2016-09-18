@@ -23,7 +23,7 @@ export default class AppNavigator extends React.Component {
                 style={{ flex: 1 }}
                 initialRoute={{ id: initialRouteID }}
                 renderScene={this.navigatorRenderScene.bind(this) }
-                configureScene={(route, routeStack) => route.configureScene ? route.configureScene : Navigator.SceneConfigs.PushFromRight}
+                configureScene={(route, routeStack) => route.configureScene ? route.configureScene : Navigator.SceneConfigs.FadeAndroid}
                 />
         )
     }

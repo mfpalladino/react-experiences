@@ -1,56 +1,71 @@
 import React, { Component } from 'react'
-import {  View, Text, Button, TouchableNativeFeedback, StyleSheet, Navigator  } from 'react-native'
+import {  View, Text, StyleSheet  } from 'react-native'
+import Button from 'apsl-react-native-button'
 
 export default class Page2 extends Component {
     constructor(props) {
         super(props);
+        this.navigator = props.navigator;
     }
     render() {
         const { onIncrementClick, onDecrementClick, onValueIncrementClick } = this.props;
 
         return (
-            <View>
+            <View style={styles.container}>
                 <Text style={{ fontSize: 50, paddingBottom: 50 }}>Page 2</Text>
-                <TouchableNativeFeedback
+
+                <Button style={styles.buttonStyle}
+                    textStyle={styles.textStyle}
                     onPress={this.gotoPage1.bind(this) }>
-                    <View>
-                        <Text>Go to page1</Text>
-                    </View>
-                </TouchableNativeFeedback>
+                    Go to page 1
+                </Button>
 
-                <TouchableNativeFeedback
-                    onPress={ onIncrementClick }>
-                    <View>
-                        <Text>Increment</Text>
-                    </View>
-                </TouchableNativeFeedback>
+                <Button style={styles.buttonStyle}
+                    textStyle={styles.textStyle}
+                    onPress={onIncrementClick }>
+                    Increment
+                </Button>
 
-                <TouchableNativeFeedback
-                    onPress={ onDecrementClick }>
-                    <View>
-                        <Text>Decrement</Text>
-                    </View>
-                </TouchableNativeFeedback>
+                <Button style={styles.buttonStyle}
+                    textStyle={styles.textStyle}
+                    onPress={onDecrementClick }>
+                    Decrement
+                </Button>
 
-                <TouchableNativeFeedback
+                <Button style={styles.buttonStyle}
+                    textStyle={styles.textStyle}
                     onPress={this.valueIncrement.bind(this) }>
-                    <View>
-                        <Text>Increment Value: 2</Text>
-                    </View>
-                </TouchableNativeFeedback>
-                
+                    Increment 2
+                </Button>
+
             </View>
         )
     }
 
-    valueIncrement(){
-        this.props.onValueIncrementClick(2)        
+    valueIncrement() {
+        this.props.onValueIncrementClick(2)
     }
 
     gotoPage1() {
-        this.props.navigator.push({
-            id: 'page1',
-            configureScene: Navigator.SceneConfigs.FloatFromBottom
+        this.navigator.push({
+            id: 'page1'
         })
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 20,
+        marginRight: 20,
+    },
+    textStyle: {
+        color: 'white'
+    },
+    buttonStyle: {
+        borderColor: '#27ae60',
+        backgroundColor: '#2ecc71'
+    }
+})
