@@ -13,6 +13,7 @@ namespace rntestes.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            System.Threading.Thread.Sleep(5000);
             return new string[] { "value1", "value2" };
         }
 

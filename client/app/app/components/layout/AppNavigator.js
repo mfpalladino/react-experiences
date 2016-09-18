@@ -32,6 +32,7 @@ export default class AppNavigator extends React.Component {
         switch (route.id) {
             case 'page1':
                 return (<Page1 counter={this.state.counter}
+                    searchValue={this.state.searchValue}
                     onSearchValuesClick={this.actions.searchValues}
                     navigator={navigator}
                     route={route}
