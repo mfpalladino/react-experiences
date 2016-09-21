@@ -34,6 +34,7 @@ export default class AppNavigator extends React.Component {
                 return (<Page1 counter={this.state.counter}
                     searchValue={this.state.searchValue}
                     onSearchValuesClick={this.actions.searchValues}
+                    onSaveLocalValueClick={this.actions.saveLocalValue}
                     navigator={navigator}
                     route={route}
                     title="Página 1"/>)

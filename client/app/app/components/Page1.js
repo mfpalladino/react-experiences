@@ -9,7 +9,7 @@ export default class Page1 extends Component {
         this.navigator = props.navigator;
     }
     render() {
-        const { counter, searchValue, onSearchValuesClick } = this.props;
+        const { counter, searchValue, onSearchValuesClick, onSaveLocalValueClick } = this.props;
 
         return (
             <View style={styles.container}>
@@ -27,7 +27,13 @@ export default class Page1 extends Component {
                     isDisabled={searchValue.isSearching}
                     isLoading={searchValue.isSearching}
                     onPress={onSearchValuesClick}>
-                    Buscar valores
+                    Search remote values
+                </Button>
+
+                <Button style={styles.buttonStyle}
+                    textStyle={styles.textStyle}
+                    onPress={this.saveLocalValue.bind(this)}>
+                    Save local value (AsyncStorage)
                 </Button>
             </View>
         )
@@ -37,6 +43,12 @@ export default class Page1 extends Component {
         this.navigator.push({
             id: 'page2'
         })
+    }
+
+    saveLocalValue() {
+        this.props.onSaveLocalValueClick({
+            today: new Date()
+        })            
     }
 }
 
