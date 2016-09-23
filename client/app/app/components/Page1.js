@@ -9,12 +9,12 @@ export default class Page1 extends Component {
         this.navigator = props.navigator;
     }
     render() {
-        const { counter, searchValue, onSearchValuesClick, onSaveLocalValueClick } = this.props;
+        const { counterState, searchValueState, onSearchValuesClick, onSaveLocalValueClick } = this.props;
 
         return (
             <View style={styles.container}>
                 <Text style={{ fontSize: 50, paddingBottom: 50 }}>Page 1</Text>
-                <Text style={{ paddingBottom: 20 }}>Contador: {counter}</Text>
+                <Text style={{ paddingBottom: 20 }}>Contador: {counterState}</Text>
 
                 <Button style={styles.buttonStyle}
                     textStyle={styles.textStyle}
@@ -24,8 +24,8 @@ export default class Page1 extends Component {
 
                 <Button style={styles.buttonStyle}
                     textStyle={styles.textStyle}
-                    isDisabled={searchValue.isSearching}
-                    isLoading={searchValue.isSearching}
+                    isDisabled={searchValueState.isSearching}
+                    isLoading={searchValueState.isSearching}
                     onPress={onSearchValuesClick}>
                     Search remote values
                 </Button>

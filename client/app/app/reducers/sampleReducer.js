@@ -5,6 +5,9 @@ const initialState = {
   searchValue: {
     isSearching: false,
     currentValues: []
+  },
+  localValue: {
+    today: new Date()
   }
 }
 
@@ -45,6 +48,17 @@ export default function sampleReducer(state = initialState, action = {}) {
           })
       })
 
+    case sampleActionTypes.SAVE_LOCAL_VALUE:
+      return state
+
+    case sampleActionTypes.SAVE_LOCAL_VALUE_SUCCESS:
+    case sampleActionTypes.GET_LOCAL_VALUE_SUCCESS:
+      return Object.assign({}, state, {
+        localValue: Object.assign({}, state.localValue,
+          {
+            today: action.value.today
+          })
+      })
 
     default:
       return state

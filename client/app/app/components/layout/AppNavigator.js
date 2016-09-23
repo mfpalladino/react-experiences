@@ -31,15 +31,16 @@ export default class AppNavigator extends React.Component {
     navigatorRenderScene(route, navigator) {
         switch (route.id) {
             case 'page1':
-                return (<Page1 counter={this.state.counter}
-                    searchValue={this.state.searchValue}
+                return (<Page1 counterState={this.state.counter}
+                    searchValueState={this.state.searchValue}
                     onSearchValuesClick={this.actions.searchValues}
                     onSaveLocalValueClick={this.actions.saveLocalValue}
                     navigator={navigator}
                     route={route}
                     title="Página 1"/>)
             case 'page2':
-                return (<Page2 onIncrementClick={this.actions.increment}
+                return (<Page2 localValueState={this.state.localValue} 
+                    onIncrementClick={this.actions.increment}
                     onDecrementClick={this.actions.decrement}
                     onValueIncrementClick={this.actions.valueIncrement}
                     navigator={navigator}

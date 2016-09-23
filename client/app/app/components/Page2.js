@@ -8,11 +8,12 @@ export default class Page2 extends Component {
         this.navigator = props.navigator;
     }
     render() {
-        const { onIncrementClick, onDecrementClick, onValueIncrementClick } = this.props;
+        const { localValueState, onIncrementClick, onDecrementClick, onValueIncrementClick } = this.props;
 
         return (
             <View style={styles.container}>
                 <Text style={{ fontSize: 50, paddingBottom: 50 }}>Page 2</Text>
+                <Text style={{ fontSize: 50, paddingBottom: 50 }}>Value on localValue: {localValueState.today.toString()}</Text>
 
                 <Button style={styles.buttonStyle}
                     textStyle={styles.textStyle}
