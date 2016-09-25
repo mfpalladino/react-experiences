@@ -9,7 +9,7 @@ export const searchValues = () => {
   return dispatch => {
     dispatch({ type: sampleActionTypes.SEARCH_VALUES_STARTED })
 
-    let url = 'http://192.168.56.2:5000/api/values'
+    let url = 'http://192.168.1.107:5000/api/values'
 
     return fetch(url)
       .then((resp) => resp.json())
