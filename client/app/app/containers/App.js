@@ -1,16 +1,9 @@
 import React, { Component } from 'react'
-import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
-import thunk from 'redux-thunk'
-import createLogger from 'redux-logger'
-
-import samplesState from '../reducers/sampleReducer'
+import configureStore from '../store/configureStore'
 import SamplesApp from './SamplesApp'
 
-const logger = createLogger()
-const createStoreWithMidleware = applyMiddleware(thunk,logger)(createStore)
-const reducer = combineReducers({ samplesState })
-const store = createStoreWithMidleware(reducer)
+const store = configureStore()
 
 export default class App extends Component {
   render() {
