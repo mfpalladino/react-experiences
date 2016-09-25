@@ -29,7 +29,6 @@ export const searchValues = () => {
 export const saveLocalValue = (value) => {
   return dispatch => {
     dispatch({ type: sampleActionTypes.SAVE_LOCAL_VALUE, value: value })
-
     let thisValue = value
     return AsyncStorage.setItem("localValue", JSON.stringify(value)).then(function () {
       dispatch({ type: sampleActionTypes.SAVE_LOCAL_VALUE_SUCCESS, value: thisValue })
@@ -37,11 +36,11 @@ export const saveLocalValue = (value) => {
   }
 }
 
-
-export const getLocalValue = () => (dispatch) => (_getLocalValue(dispatch))
-const _getLocalValue = (dispatch) => {
-  AsyncStorage.getItem("localValue").then((value) => {
-    dispatch(_getLocalValueSuccess(value))
-  }).done()
+export const getLocalValue = () => {
+  return dispatch => {
+    dispatch({ type: sampleActionTypes.GET_LOCAL_VALUE })
+    return AsyncStorage.getItem("localValue").then((value) => {
+      dispatch({ type: sampleActionTypes.GET_LOCAL_VALUE_SUCCESS, value: JSON.parse(value) })
+    }).done()
+  }
 }
-const _getLocalValueSuccess = (value) => ({ type: sampleActionTypes.GET_LOCAL_VALUE_SUCCESS, value: value })

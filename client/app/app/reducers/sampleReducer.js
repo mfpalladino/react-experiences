@@ -51,6 +51,9 @@ export default function sampleReducer(state = initialState, action = {}) {
     case sampleActionTypes.SAVE_LOCAL_VALUE:
       return state
 
+    case sampleActionTypes.GET_LOCAL_VALUE:
+      return state
+
     case sampleActionTypes.SAVE_LOCAL_VALUE_SUCCESS:
     case sampleActionTypes.GET_LOCAL_VALUE_SUCCESS:
       return Object.assign({}, state, {

@@ -8,7 +8,7 @@ export default class Page2 extends Component {
         this.navigator = props.navigator;
     }
     render() {
-        const { localValueState, onIncrementClick, onDecrementClick, onValueIncrementClick } = this.props;
+        const { localValueState, onIncrementClick, onDecrementClick, onValueIncrementClick, onGetLocalValueClick } = this.props;
 
         return (
             <View style={styles.container}>
@@ -37,6 +37,12 @@ export default class Page2 extends Component {
                     textStyle={styles.textStyle}
                     onPress={this.valueIncrement.bind(this) }>
                     Increment 2
+                </Button>
+
+                <Button style={styles.buttonStyle}
+                    textStyle={styles.textStyle}
+                    onPress={onGetLocalValueClick }>
+                    Get local value (AsyncStorage)
                 </Button>
 
             </View>
