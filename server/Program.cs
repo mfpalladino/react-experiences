@@ -20,7 +20,7 @@ namespace rntestes
 
             var host = new WebHostBuilder()
                 .UseConfiguration(config)
-                .UseUrls("http://192.168.56.2:5000")
+                .UseUrls("http://192.168.1.107:5000")
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
