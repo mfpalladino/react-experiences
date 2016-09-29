@@ -3,6 +3,12 @@ import {  View, Text, StyleSheet } from 'react-native'
 import SearchValuesProgress from './SearchValuesProgress'
 import Button from 'apsl-react-native-button'
 
+const FBSDK = require('react-native-fbsdk');
+const {
+  LoginButton,
+  AccessToken
+} = FBSDK;
+
 export default class Page1 extends Component {
     constructor(props) {
         super(props)
@@ -13,8 +19,11 @@ export default class Page1 extends Component {
 
         return (
             <View style={styles.container}>
+
                 <Text style={{ fontSize: 50, paddingBottom: 50 }}>Page 1</Text>
                 <Text style={{ paddingBottom: 20 }}>Contador: {counterState}</Text>
+
+                <LoginButton />
 
                 <Button style={styles.buttonStyle}
                     textStyle={styles.textStyle}
